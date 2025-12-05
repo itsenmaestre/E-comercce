@@ -1,183 +1,116 @@
+// ===============================
+// CARRITO AVANZADO FITZONE
+// ===============================
 
-//DOM
-document.addEventListener('DOMContentLoaded', () => { 
-    // Variables
-    const baseDeDatos = [
-        {
-            id: 1,
-            nombre: 'Sombrero vueltiao con la bandera de Colombia, 23 vueltas',
-            precio: 250000,
-            imagen: 'assets/img/feature_prod_01.jpg',
-            categoria: 'sombreros'
-        },
-        {
-            id: 2,
-            nombre: 'Sombrero vueltiao-machiembriao',
-            precio: 150000,
-            imagen: 'assets/img/sombrero4.jpg',
-            categoria: 'sombreros'
-        },
-        {
-            id: 3,
-            nombre: 'Sombrero vueltiao colombiano 15 vueltas tricolor',
-            precio: 250000,
-            imagen: 'assets/img/feature_prod_02.jpg',
-            categoria: 'sombreros'
-        },
-        {
-            id: 4,
-            nombre: 'Mochila wayuu azul 6',
-            precio: 120000,
-            imagen: 'assets/img/shop_04.jpg',
-            categoria: 'mochilas'
-        },
-        {
-            id: 5,
-            nombre: 'Bolso en fique',
-            precio: 120000,
-            imagen: 'assets/img/shop_03.jpg',
-            categoria: 'bolsos'
-        },
-        {
-            id: 6,
-            nombre: 'Hamaca',
-            precio: 120000,
-            imagen: 'assets/img/category_img_02.jpg',
-            categoria: 'hamacas'
-        }
-    ];
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-    let carrito = [];
-    const divisa = '$';
-    const DOMitems = document.querySelector('#items');
-    const DOMcarrito = document.querySelector('#carrito');
-    const DOMtotal = document.querySelector('#total');
-    const DOMbotonVaciar = document.querySelector('#boton-vaciar');
-    const miLocalStorage = window.localStorage;
-    const filtroSelect = document.getElementById("filtro");
+// Guardar carrito en localStorage
+function guardarCarrito() {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
 
-    // Funciones
+// Agregar productos al carrito
+function addToCart(nombre, precio, imagen) {
+    const producto = carrito.find(item => item.nombre === nombre);
 
-    function renderizarProductos() {
-        DOMitems.innerHTML = "";
-        const filtro = filtroSelect.value;
-        const productosFiltrados = baseDeDatos.filter(producto => 
-            filtro === "todas" || producto.categoria === filtro
-        );
-        productosFiltrados.forEach((info) => {
-            const miNodo = document.createElement('div');
-            miNodo.classList.add('card', 'col-sm-4');
-            const miNodoCardBody = document.createElement('div');
-            miNodoCardBody.classList.add('card-body');
-            const miNodoTitle = document.createElement('h6');
-            miNodoTitle.classList.add('card-title');
-            miNodoTitle.textContent = info.nombre;
-            const miNodoImagen = document.createElement('img');
-            miNodoImagen.classList.add('img-fluid');
-            miNodoImagen.setAttribute('src', info.imagen);
-            const miNodoPrecio = document.createElement('p');
-            miNodoPrecio.classList.add('card-text');
-            miNodoPrecio.textContent = `${info.precio}${divisa}`;
-            const miNodoBoton = document.createElement('button');
-            miNodoBoton.classList.add('btn', 'btn-primary');
-            miNodoBoton.textContent = 'Agregar';
-            miNodoBoton.setAttribute('marcador', info.id);
-            miNodoBoton.addEventListener('click', anadirProductoAlCarrito);
-            miNodoCardBody.appendChild(miNodoImagen);
-            miNodoCardBody.appendChild(miNodoTitle);
-            miNodoCardBody.appendChild(miNodoPrecio);
-            miNodoCardBody.appendChild(miNodoBoton);
-            miNodo.appendChild(miNodoCardBody);
-            DOMitems.appendChild(miNodo);
+    if (producto) {
+        producto.cantidad++;
+    } else {
+        carrito.push({
+            nombre,
+            precio,
+            cantidad: 1,
+            imagen
         });
     }
-// Obtén el contador del almacenamiento local
-    let visitas = localStorage.getItem('contadorVisitas');
-// Si no hay visitas almacenadas, inicializa a 0
-    if (!visitas) {
-        visitas = 0;
+
+    guardarCarrito();
+    actualizarCarritoHTML();
+    alert("Producto agregado al carrito ✔");
+}
+
+// Eliminar un producto totalmente
+function eliminarProducto(nombre) {
+    carrito = carrito.filter(item => item.nombre !== nombre);
+    guardarCarrito();
+    actualizarCarritoHTML();
+}
+
+// Cambiar cantidad (+ / -)
+function cambiarCantidad(nombre, valor) {
+    const producto = carrito.find(item => item.nombre === nombre);
+
+    if (!producto) return;
+
+    producto.cantidad += valor;
+
+    if (producto.cantidad <= 0) {
+        eliminarProducto(nombre);
+    } else {
+        guardarCarrito();
     }
-// Incrementa el contador
-    visitas++;
-// Guarda el nuevo contador en el almacenamiento local
-    localStorage.setItem('contadorVisitas', visitas);
-// Muestra el contador en la página
-    document.getElementById('contador').textContent = visitas;
-    function anadirProductoAlCarrito(evento) {
-        carrito.push(evento.target.getAttribute('marcador'));
-        renderizarCarrito();
-        guardarCarritoEnLocalStorage();
-        handleCarritoValue(carrito.length);
-    }
-    function handleCarritoValue(value) {
-        const carritoContainer = document.getElementById("carrito-value");
-        carritoContainer.textContent = `${value}`;
-    }
-    function renderizarCarrito() {
-        DOMcarrito.textContent = '';
-        const carritoSinDuplicados = [...new Set(carrito)];
-        carritoSinDuplicados.forEach((item) => {
-            const miItem = baseDeDatos.filter((itemBaseDatos) => {
-                return itemBaseDatos.id === parseInt(item);
-            });
-            const numeroUnidadesItem = carrito.reduce((total, itemId) => {
-                return itemId === item ? total += 1 : total;
-            }, 0);
-            const miNodo = document.createElement('li');
-            miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
-            miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${divisa}`;
-            const miBoton = document.createElement('button');
-            miBoton.classList.add('btn', 'btn-danger', 'mx-5');
-            miBoton.textContent = 'X';
-            miBoton.style.marginLeft = '1rem';
-            miBoton.dataset.item = item;
-            miBoton.addEventListener('click', borrarItemCarrito);
-            miNodo.appendChild(miBoton);
-            DOMcarrito.appendChild(miNodo);
-        });
-        DOMtotal.textContent = calcularTotal();
-    }
-    //borra carrito
-    function borrarItemCarrito(evento) {
-        const id = evento.target.dataset.item;
-        carrito = carrito.filter((carritoId) => {
-            return carritoId !== id;
-        });
-        renderizarCarrito();
-        guardarCarritoEnLocalStorage();
-        handleCarritoValue(carrito.length);
-    }
-    //calcular el total
-    function calcularTotal() {
-        return carrito.reduce((total, item) => {
-            const miItem = baseDeDatos.filter((itemBaseDatos) => {
-                return itemBaseDatos.id === parseInt(item);
-            });
-            return total + miItem[0].precio;
-        }, 0).toFixed(2);
-    }
-    //vaciar todos los elementos del carrito
-    function vaciarCarrito() {
-        carrito = [];
-        renderizarCarrito();
-        localStorage.clear();
-    }
-    //guardar en local el carrito
-    function guardarCarritoEnLocalStorage() {
-        miLocalStorage.setItem('carrito', JSON.stringify(carrito));
-    }
-    //cargar del local el carriro
-    function cargarCarritoDeLocalStorage() {
-        if (miLocalStorage.getItem('carrito') !== null) {
-            carrito = JSON.parse(miLocalStorage.getItem('carrito'));
-            handleCarritoValue(carrito.length);
-        }
-    }
-    // Eventos
-    DOMbotonVaciar.addEventListener('click', vaciarCarrito);
-    filtroSelect.addEventListener('change', renderizarProductos);
-    // Inicio
-    cargarCarritoDeLocalStorage();
-    renderizarProductos();
-    renderizarCarrito();
-});
+
+    actualizarCarritoHTML();
+}
+
+// Calcular total
+function calcularTotal() {
+    return carrito.reduce((total, item) => total + item.precio * item.cantidad, 0);
+}
+
+// Render del carrito en compras.html
+function actualizarCarritoHTML() {
+    const contenedor = document.getElementById("carrito-contenedor");
+    const totalHTML = document.getElementById("total-precio");
+    
+    if (!contenedor) return;
+
+    contenedor.innerHTML = "";
+
+    carrito.forEach(item => {
+        contenedor.innerHTML += `
+            <div class="card mb-3 p-3" style="background:#11161a; border:1px solid #1c2328; border-radius:12px;">
+                <div class="row g-3 align-items-center">
+                    
+                    <div class="col-md-3 text-center">
+                        <img src="${item.imagen}" class="img-fluid rounded-3" style="height:130px; object-fit:cover;">
+                    </div>
+
+                    <div class="col-md-6 text-light">
+                        <h4 class="fw-bold">${item.nombre}</h4>
+                        <p class="text-secondary">Precio unitario: $${item.precio.toLocaleString("es-CO")}</p>
+
+                        <div class="d-flex align-items-center gap-3 mt-2">
+
+                            <button class="btn btn-sm btn-outline-light" onclick="cambiarCantidad('${item.nombre}', -1)">−</button>
+
+                            <span class="fw-bold">${item.cantidad}</span>
+
+                            <button class="btn btn-sm btn-outline-info" onclick="cambiarCantidad('${item.nombre}', 1)">+</button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3 text-end text-light">
+                        <h5 class="fw-bold">Subtotal:</h5>
+                        <h5 style="color:#38B6FF;">
+                            $${(item.precio * item.cantidad).toLocaleString("es-CO")}
+                        </h5>
+
+                        <button class="btn btn-danger btn-sm mt-2"
+                            onclick="eliminarProducto('${item.nombre}')">
+                            Eliminar
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        `;
+    });
+
+    totalHTML.innerHTML = "$" + calcularTotal().toLocaleString("es-CO");
+}
+
+// Ejecutar cuando se carga compras.html
+document.addEventListener("DOMContentLoaded", actualizarCarritoHTML);
