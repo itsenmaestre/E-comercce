@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,10 +24,6 @@
 </head>
 
 <body>
-
-    <!-- =========================== -->
-    <!-- 🔵 NAVBAR SUPERIOR (CONTACTO) -->
-    <!-- =========================== -->
     <nav id="topbar" class="py-2" style="background:#0a0d0f; border-bottom:1px solid #1a1f24;">
         <div class="container d-flex justify-content-between text-light small">
             <div>
@@ -42,13 +39,8 @@
         </div>
     </nav>
 
-    <!-- =========================== -->
-    <!-- 🔵 NAVBAR PRINCIPAL -->
-    <!-- =========================== -->
     <nav class="navbar navbar-expand-lg" style="background:#0d1113;">
         <div class="container">
-
-            <!-- LOGO REDONDO CON BORDE AZUL ELÉCTRICO -->
             <a class="navbar-brand d-flex align-items-center text-white" href="index.html">
                 <div style="
                     width:55px;
@@ -70,7 +62,8 @@
                 </span>
             </a>
 
-            <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon" style="filter:invert(1);"></span>
             </button>
 
@@ -82,15 +75,14 @@
                     <li class="nav-item"><a class="nav-link text-light" href="productos_general.html">Productos</a></li>
                     <li class="nav-item"><a class="nav-link px-3 text-light" href="contacto.html">Contacto</a></li>
                 </ul>
-                
+
             </div>
             <li class="nav-item position-relative">
-    <a class="nav-link text-light" href="compras.html" style="position:relative;">
-        <i class="fa fa-shopping-cart" style="font-size:20px;"></i>
+                <a class="nav-link text-light" href="compras.html" style="position:relative;">
+                    <i class="fa fa-shopping-cart" style="font-size:20px;"></i>
 
-        <!-- Burbuja de cantidad -->
-        <span id="carrito-count"
-            style="
+                    <!-- Burbuja de cantidad -->
+                    <span id="carrito-count" style="
                 position:absolute;
                 top:0;
                 right:-10px;
@@ -100,17 +92,14 @@
                 border-radius:50%;
                 font-size:12px;
                 font-weight:bold;">
-            0
-        </span>
-    </a>
-</li>
+                        0
+                    </span>
+                </a>
+            </li>
 
 
         </div>
     </nav>
-    <!-- ================================================ -->
-    <!-- 🔥 HERO PRINCIPAL FITZONE (OSCURECIDO + AZUL) -->
-    <!-- ================================================ -->
     <div id="fitzone-hero" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2500">
 
 
@@ -134,7 +123,8 @@
                             <h3 class="fw-light mb-3" style="color:#38B6FF;">Equipo Premium para tu Entrenamiento</h3>
 
                             <p class="text-secondary mb-4">
-                                Optimiza tu rendimiento con mancuernas, ropa deportiva, accesorios y equipamiento profesional.
+                                Optimiza tu rendimiento con mancuernas, ropa deportiva, accesorios y equipamiento
+                                profesional.
                             </p>
 
                             <a href="productos_general.html" class="btn btn-primary btn-lg px-4 py-2"
@@ -181,7 +171,8 @@
                             <h1 class="display-4 fw-bold text-light mb-3">Accesorios para Cada Rutina</h1>
 
                             <p class="text-secondary mb-4">
-                                Bandas, guantes, rodilleras, cinturones y herramientas esenciales para tu entrenamiento diario.
+                                Bandas, guantes, rodilleras, cinturones y herramientas esenciales para tu entrenamiento
+                                diario.
                             </p>
                         </div>
 
@@ -206,10 +197,6 @@
         </button>
 
     </div>
-
-    <!-- ================================================ -->
-    <!-- 🔥 CATEGORÍAS FITZONE -->
-    <!-- ================================================ -->
     <section class="container py-5 text-center">
 
         <h2 class="fw-bold text-light mb-4">Categorías</h2>
@@ -243,10 +230,6 @@
 
         </div>
     </section>
-
-    <!-- ================================================ -->
-    <!-- 🔥 PRODUCTOS DESTACADOS -->
-    <!-- ================================================ -->
     <section class="py-5" style="background:#0f1316;">
         <div class="container text-center">
 
@@ -325,7 +308,8 @@
                 <!-- COLUMNA 3 -->
                 <div class="col-md-4 mb-4">
                     <h4 class="fw-semibold mb-3">Contacto</h4>
-                    <p class="text-secondary mb-1"><i class="fa fa-envelope me-2 text-info"></i> contacto@fitzone.com</p>
+                    <p class="text-secondary mb-1"><i class="fa fa-envelope me-2 text-info"></i> contacto@fitzone.com
+                    </p>
                     <p class="text-secondary mb-1"><i class="fa fa-phone me-2 text-info"></i> +57 300 000 0000</p>
                     <p class="text-secondary"><i class="fa fa-map-marker-alt me-2 text-info"></i> Bogotá, Colombia</p>
                 </div>
@@ -340,24 +324,21 @@
 
         </div>
     </footer>
-
-    <!-- ================================================ -->
-    <!-- 📌 SCRIPTS -->
-    <!-- ================================================ -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/jquery-1.11.0.min.js"></script>
     <script src="assets/js/custom.js"></script>
 
     <script>
-function actualizarCarritoCount() {
-    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-    let totalCantidad = carrito.reduce((sum, item) => sum + item.cantidad, 0);
-    document.getElementById("carrito-count").textContent = totalCantidad;
-}
+        function actualizarCarritoCount() {
+            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+            let totalCantidad = carrito.reduce((sum, item) => sum + item.cantidad, 0);
+            document.getElementById("carrito-count").textContent = totalCantidad;
+        }
 
-document.addEventListener("DOMContentLoaded", actualizarCarritoCount);
-</script>
+        document.addEventListener("DOMContentLoaded", actualizarCarritoCount);
+    </script>
 
 
 </body>
+
 </html>
