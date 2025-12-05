@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FitZone - Premium Fitness Gear. Equipo, accesorios y ropa deportiva profesional.">
+    <title>FitZone - Premium Fitness Gear</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/logo.png">
+
+    <!-- CSS principales -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+
+    <!-- CSS NUEVO FITZONE (lo enviaré después en PARTE 4 y PARTE 5) -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+
+</head>
+
+<body>
+
+    <!-- =========================== -->
+    <!-- 🔵 NAVBAR SUPERIOR (CONTACTO) -->
+    <!-- =========================== -->
+    <nav id="topbar" class="py-2" style="background:#0a0d0f; border-bottom:1px solid #1a1f24;">
+        <div class="container d-flex justify-content-between text-light small">
+            <div>
+                <i class="fa fa-envelope me-2 text-info"></i> contacto@fitzone.com
+                <i class="fa fa-phone ms-4 me-2 text-info"></i> +57 300 000 0000
+            </div>
+
+            <div>
+                <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-light"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- =========================== -->
+    <!-- 🔵 NAVBAR PRINCIPAL -->
+    <!-- =========================== -->
+    <nav class="navbar navbar-expand-lg" style="background:#0d1113;">
+        <div class="container">
+
+            <!-- LOGO REDONDO CON BORDE AZUL ELÉCTRICO -->
+            <a class="navbar-brand d-flex align-items-center text-white" href="index.html">
+                <div style="
+                    width:55px;
+                    height:55px;
+                    border-radius:50%;
+                    border:3px solid #38B6FF;
+                    padding:3px;
+                    overflow:hidden;
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;
+                    background:#0d1113;
+                ">
+                    <img src="assets/img/logo.png" alt="FitZone Logo" style="width:95%; border-radius:50%;">
+                </div>
+
+                <span style="font-size:1.8rem; font-weight:700; margin-left:12px; color:white;">
+                    FitZone
+                </span>
+            </a>
+
+            <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="filter:invert(1);"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav text-center">
+                    <li class="nav-item"><a class="nav-link px-3 text-light" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 text-light" href="acercade.html">Acerca de</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 text-light" href="compras.html">Compras</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 text-light" href="productos.html">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 text-light" href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- ================================================ -->
+    <!-- 🔥 HERO PRINCIPAL FITZONE (OSCURECIDO + AZUL) -->
+    <!-- ================================================ -->
+    <div id="fitzone-hero" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2500">
+
+
+        <!-- Indicadores -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#fitzone-hero" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#fitzone-hero" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#fitzone-hero" data-bs-slide-to="2"></button>
+        </div>
+
+        <!-- Slides -->
+        <div class="carousel-inner">
+
+            <!-- SLIDE 1 -->
+            <div class="carousel-item active">
+                <div class="container py-5">
+                    <div class="row align-items-center">
+
+                        <div class="col-md-6 text-light">
+                            <h1 class="display-4 fw-bold mb-3">Bienvenido a FitZone</h1>
+                            <h3 class="fw-light mb-3" style="color:#38B6FF;">Equipo Premium para tu Entrenamiento</h3>
+
+                            <p class="text-secondary mb-4">
+                                Optimiza tu rendimiento con mancuernas, ropa deportiva, accesorios y equipamiento profesional.
+                            </p>
+
+                            <a href="productos.html" class="btn btn-primary btn-lg px-4 py-2"
+                                style="background:#38B6FF; border:none; font-weight:600;">
+                                Explorar Productos
+                            </a>
+                        </div>
+
+                        <div class="col-md-6 text-center">
+                            <img src="assets/img/hero_1.jpg" class="img-fluid rounded-4 shadow-lg">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 2 -->
+            <div class="carousel-item">
+                <div class="container py-5">
+                    <div class="row align-items-center">
+
+                        <div class="col-md-6">
+                            <h1 class="display-4 fw-bold text-light mb-3">Entrena como un Profesional</h1>
+
+                            <p class="text-secondary mb-4">
+                                Gimnasios, barras, discos y equipamiento de alto rendimiento para subir tu nivel.
+                            </p>
+                        </div>
+
+                        <div class="col-md-6 text-center">
+                            <img src="assets/img/hero_3.png" class="img-fluid rounded-4 shadow-lg">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3 -->
+            <div class="carousel-item">
+                <div class="container py-5">
+                    <div class="row align-items-center">
+
+                        <div class="col-md-6">
+                            <h1 class="display-4 fw-bold text-light mb-3">Accesorios para Cada Rutina</h1>
+
+                            <p class="text-secondary mb-4">
+                                Bandas, guantes, rodilleras, cinturones y herramientas esenciales para tu entrenamiento diario.
+                            </p>
+                        </div>
+
+                        <div class="col-md-6 text-center">
+                            <img src="assets/img/hero_2.png" class="img-fluid rounded-4 shadow-lg">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Flecha izquierda -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#fitzone-hero" data-bs-slide="prev">
+            <i class="fas fa-chevron-left text-light" style="font-size:1.8rem;"></i>
+        </button>
+
+        <!-- Flecha derecha -->
+        <button class="carousel-control-next" type="button" data-bs-target="#fitzone-hero" data-bs-slide="next">
+            <i class="fas fa-chevron-right text-light" style="font-size:1.8rem;"></i>
+        </button>
+
+    </div>
+
+    <!-- ================================================ -->
+    <!-- 🔥 CATEGORÍAS FITZONE -->
+    <!-- ================================================ -->
+    <section class="container py-5 text-center">
+
+        <h2 class="fw-bold text-light mb-4">Categorías</h2>
+        <p class="text-secondary mb-5">Desde fuerza hasta accesorios esenciales.</p>
+
+        <div class="row g-4">
+
+            <!-- CATEGORÍA 1 -->
+            <div class="col-md-4">
+                <div class="p-3 bg-dark rounded-4 shadow-sm h-100">
+                    <img src="assets/img/categoria_1.png" class="img-fluid rounded-4 mb-3">
+                    <h4 class="text-light fw-bold">Mancuernas y Pesas</h4>
+                </div>
+            </div>
+
+            <!-- CATEGORÍA 2 -->
+            <div class="col-md-4">
+                <div class="p-3 bg-dark rounded-4 shadow-sm h-100">
+                    <img src="assets/img/categoria_2.png" class="img-fluid rounded-4 mb-3">
+                    <h4 class="text-light fw-bold">Accesorios Deportivos</h4>
+                </div>
+            </div>
+
+            <!-- CATEGORÍA 3 -->
+            <div class="col-md-4">
+                <div class="p-3 bg-dark rounded-4 shadow-sm h-100">
+                    <img src="assets/img/categoria_3.png" class="img-fluid rounded-4 mb-3">
+                    <h4 class="text-light fw-bold">Ropa y Equipamiento</h4>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================================================ -->
+    <!-- 🔥 PRODUCTOS DESTACADOS -->
+    <!-- ================================================ -->
+    <section class="py-5" style="background:#0f1316;">
+        <div class="container text-center">
+
+            <h2 class="fw-bold text-light mb-4">Productos Destacados</h2>
+            <p class="text-secondary mb-5">Nuestros productos más populares entre atletas.</p>
+
+            <div class="row g-4">
+
+                <!-- PRODUCTO 1 -->
+                <div class="col-md-4">
+                    <div class="card bg-dark text-light border-0 rounded-4 shadow-lg h-100">
+                        <img src="assets/img/producto_1.png" class="card-img-top rounded-top-4">
+                        <div class="card-body">
+                            <h5 class="fw-bold">Mancuerna Hexagonal</h5>
+                            <p class="text-secondary">Diseño robusto y agarre seguro para entrenar fuerza.</p>
+                            <span class="badge" style="background:#38B6FF;">$80.000 COP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 2 -->
+                <div class="col-md-4">
+                    <div class="card bg-dark text-light border-0 rounded-4 shadow-lg h-100">
+                        <img src="assets/img/producto_2.png" class="card-img-top rounded-top-4">
+                        <div class="card-body">
+                            <h5 class="fw-bold">Bandas de Resistencia Pro</h5>
+                            <p class="text-secondary">Tonifica y mejora tu rendimiento con bandas premium.</p>
+                            <span class="badge" style="background:#38B6FF;">$45.000 COP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 3 -->
+                <div class="col-md-4">
+                    <div class="card bg-dark text-light border-0 rounded-4 shadow-lg h-100">
+                        <img src="assets/img/producto_3.png" class="card-img-top rounded-top-4">
+                        <div class="card-body">
+                            <h5 class="fw-bold">Guantes Fitness Antideslizantes</h5>
+                            <p class="text-secondary">Protege tus manos y mejora tu agarre en cada rutina.</p>
+                            <span class="badge" style="background:#38B6FF;">$35.000 COP</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- ================================================ -->
+    <!-- 🔥 FOOTER PROFESIONAL FITZONE -->
+    <!-- ================================================ -->
+    <footer class="py-5 text-light" style="background:#0a0d0f;">
+        <div class="container">
+
+            <div class="row">
+
+                <!-- COLUMNA 1 -->
+                <div class="col-md-4 mb-4">
+                    <h3 class="fw-bold mb-3">FitZone</h3>
+                    <p class="text-secondary">
+                        Equipo premium para tus entrenamientos. Rendimiento, calidad y estilo para atletas reales.
+                    </p>
+                </div>
+
+                <!-- COLUMNA 2 -->
+                <div class="col-md-4 mb-4">
+                    <h4 class="fw-semibold mb-3">Enlaces</h4>
+                    <ul class="list-unstyled text-secondary">
+                        <li><a href="index.html" class="text-secondary text-decoration-none">Inicio</a></li>
+                        <li><a href="productos.html" class="text-secondary text-decoration-none">Productos</a></li>
+                        <li><a href="compras.html" class="text-secondary text-decoration-none">Compras</a></li>
+                        <li><a href="contacto.html" class="text-secondary text-decoration-none">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMNA 3 -->
+                <div class="col-md-4 mb-4">
+                    <h4 class="fw-semibold mb-3">Contacto</h4>
+                    <p class="text-secondary mb-1"><i class="fa fa-envelope me-2 text-info"></i> contacto@fitzone.com</p>
+                    <p class="text-secondary mb-1"><i class="fa fa-phone me-2 text-info"></i> +57 300 000 0000</p>
+                    <p class="text-secondary"><i class="fa fa-map-marker-alt me-2 text-info"></i> Bogotá, Colombia</p>
+                </div>
+
+            </div>
+
+            <hr class="border-secondary">
+
+            <div class="text-center text-secondary small">
+                © 2024 FitZone — Premium Fitness Gear. Todos los derechos reservados.
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- ================================================ -->
+    <!-- 📌 SCRIPTS -->
+    <!-- ================================================ -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery-1.11.0.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+</body>
+</html>

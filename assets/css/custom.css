@@ -1,0 +1,521 @@
+/* ============================================================
+   🎨 FITZONE CUSTOM CSS — MODO OSCURO PREMIUM (Parte 1/2)
+   ============================================================ */
+
+/* PALETA PRINCIPAL */
+:root {
+    --fit-dark-1: #0d1113;
+    --fit-dark-2: #101418;
+    --fit-dark-3: #182026;
+    --fit-text-light: #ffffff;
+    --fit-text-muted: #b4b4b4;
+    --fit-blue: #38B6FF;
+    --fit-aqua: #00E0C6;
+}
+
+/* RESET BÁSICO */
+body {
+    background: var(--fit-dark-2) !important;
+    color: var(--fit-text-light) !important;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Quitar fondos raros heredados */
+section,
+.container {
+    background: transparent !important;
+}
+
+/* ============================================= */
+/* 🔵 NAVBAR SUPERIOR */
+/* ============================================= */
+#topbar {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+/* Links hover */
+#topbar a:hover {
+    color: var(--fit-blue) !important;
+}
+
+/* ============================================= */
+/* 🔵 NAVBAR PRINCIPAL */
+/* ============================================= */
+.navbar {
+    background: var(--fit-dark-1) !important;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #1c2226;
+}
+
+.navbar .nav-link {
+    font-size: 1.05rem;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.navbar .nav-link:hover {
+    color: var(--fit-blue) !important;
+}
+
+/* ============================================= */
+/* 🔵 LOGO CIRCULAR */
+/* ============================================= */
+.navbar-brand .logo-circle {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 3px solid var(--fit-blue);
+    padding: 3px;
+    overflow: hidden;
+    background: var(--fit-dark-1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ============================================= */
+/* 🔥 HERO — Carrusel Moderno */
+/* ============================================= */
+#fitzone-hero {
+    background: linear-gradient(135deg, #131313, #1c1f22) !important;
+}
+
+#fitzone-hero .carousel-item {
+    min-height: 520px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+/* Texto del hero */
+#fitzone-hero h1,
+#fitzone-hero h3,
+#fitzone-hero p {
+    color: var(--fit-text-light) !important;
+}
+
+/* Subtítulos azules */
+#fitzone-hero h3 {
+    color: var(--fit-blue) !important;
+}
+
+/* Imagenes del hero */
+#fitzone-hero img {
+    border-radius: 20px;
+    box-shadow: 0px 5px 25px rgba(0,0,0,0.45);
+    transform: scale(1.07);
+    transition: all .8s ease;
+}
+
+#fitzone-hero .carousel-item.active img {
+    transform: scale(1);
+}
+
+/* Flechas */
+.carousel-control-prev i,
+.carousel-control-next i {
+    font-size: 2rem !important;
+    color: var(--fit-blue) !important;
+    opacity: 0.7;
+    transition: .3s ease;
+}
+
+.carousel-control-prev i:hover,
+.carousel-control-next i:hover {
+    opacity: 1;
+}
+
+/* Indicadores del carrusel */
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--fit-text-muted);
+}
+
+.carousel-indicators .active {
+    background: var(--fit-blue);
+}
+
+/* ============================================= */
+/* 🔥 CATEGORÍAS */
+/* ============================================= */
+
+.category-card {
+    background: var(--fit-dark-3);
+    border-radius: 18px;
+    padding: 15px;
+    transition: .3s ease;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.35);
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.50);
+}
+
+.category-card img {
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.category-card h4 {
+    font-weight: 600;
+}
+
+
+/* ============================================= */
+/* 🔥 PRODUCTOS DESTACADOS */
+/* ============================================= */
+
+.card {
+    background: var(--fit-dark-3) !important;
+    border: none !important;
+    border-radius: 20px !important;
+    color: var(--fit-text-light) !important;
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.40) !important;
+    transition: .3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0px 15px 35px rgba(0,0,0,0.55) !important;
+}
+
+.card img {
+    border-radius: 20px 20px 0 0;
+}
+
+.card .badge {
+    background: var(--fit-blue) !important;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+/* ============================================================
+   🎨 FITZONE CUSTOM CSS — MODO OSCURO PREMIUM (Parte 2/2)
+   ============================================================ */
+
+/* ============================================= */
+/* 🔥 FOOTER */
+/* ============================================= */
+
+footer {
+    background: var(--fit-dark-1) !important;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+footer h3, footer h4 {
+    color: var(--fit-text-light);
+    font-weight: 700;
+}
+
+footer p, footer a {
+    color: var(--fit-text-muted) !important;
+    text-decoration: none;
+    transition: .3s ease;
+}
+
+footer a:hover {
+    color: var(--fit-blue) !important;
+}
+
+/* Separador */
+footer hr {
+    border-color: #222 !important;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+/* ============================================= */
+/* 🔥 BOTONES */
+/* ============================================= */
+
+.btn-primary,
+.btn-success {
+    background: var(--fit-blue) !important;
+    border: none !important;
+    color: #fff !important;
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: .3s ease;
+}
+
+.btn-primary:hover,
+.btn-success:hover {
+    background: var(--fit-aqua) !important;
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 20px rgba(0, 224, 198, 0.4);
+}
+
+/* ============================================= */
+/* 🔥 FORMULARIOS */
+/* ============================================= */
+
+.form-control {
+    background: #111 !important;
+    border: 1px solid #222 !important;
+    color: var(--fit-text-light) !important;
+    padding: 12px 15px;
+    border-radius: 8px;
+}
+
+.form-control:focus {
+    border-color: var(--fit-blue) !important;
+    box-shadow: 0 0 0 0.15rem rgba(56, 182, 255, 0.35);
+}
+
+/* ============================================= */
+/* 🔥 MODAL BUSCADOR */
+/* ============================================= */
+
+.modal-content {
+    background: var(--fit-dark-2) !important;
+    color: var(--fit-text-light) !important;
+    border-radius: 20px;
+    border: 1px solid #222;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.modal-content .form-control {
+    background: #0f1316 !important;
+}
+
+/* ============================================= */
+/* 🔥 SCROLL ANIMATIONS */
+/* ============================================= */
+
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+
+.scroll-animate.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================= */
+/* 🔥 TARJETAS VARIAS */
+/* ============================================= */
+
+.shadow-soft {
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.35);
+}
+
+.rounded-4 {
+    border-radius: 14px !important;
+}
+
+.rounded-top-4 {
+    border-radius: 14px 14px 0 0 !important;
+}
+
+/* ============================================= */
+/* 🔥 TIPOGRAFÍA GLOBAL */
+/* ============================================= */
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--fit-text-light) !important;
+    font-weight: 700 !important;
+}
+
+p {
+    color: var(--fit-text-muted) !important;
+}
+
+/* ============================================= */
+/* 🔥 RESPONSIVE */
+/* ============================================= */
+
+@media (max-width: 768px) {
+
+    /* ajustar textos hero */
+    #fitzone-hero h1 {
+        font-size: 2rem !important;
+    }
+
+    #fitzone-hero h3 {
+        font-size: 1.2rem !important;
+    }
+
+    /* categorías */
+    .category-card {
+        margin-bottom: 20px;
+    }
+
+    /* tarjetas */
+    .card {
+        margin-bottom: 20px;
+    }
+
+    /* navbar */
+    .navbar-brand span {
+        font-size: 1.4rem !important;
+    }
+}
+
+/* ============================================= */
+/* 🔥 FIXES GENERALES */
+/* ============================================= */
+
+/* evitar fondos grises de Bootstrap */
+.bg-light, .bg-white {
+    background: transparent !important;
+}
+
+.text-dark {
+    color: var(--fit-text-light) !important;
+}
+
+.text-muted {
+    color: var(--fit-text-muted) !important;
+}
+
+/* ============================================= */
+/* 🔥 SLIDER CONTROLS MODERNOS FITZONE */
+/* ============================================= */
+
+/* Flechas: estilo minimalista */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 55px;
+    height: 55px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1 !important;
+}
+
+.carousel-control-prev i,
+.carousel-control-next i {
+    font-size: 1.4rem !important;
+    color: #ffffff !important;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    transition: 0.3s ease-in-out;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background: rgba(56, 182, 255, 0.25);
+    box-shadow: 0 0 20px rgba(56, 182, 255, 0.4);
+}
+
+/* Indicadores (los puntitos) */
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border: none;
+    border-radius: 50%;
+    background: #6e6e6e !important;
+    margin: 0 4px;
+    transition: 0.3s ease;
+}
+
+.carousel-indicators .active {
+    background: #38B6FF !important;
+    transform: scale(1.3);
+}
+
+#fitzone-hero .container {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+/* Eliminar franjas o fondos claros que aparecen a los lados */
+#fitzone-hero,
+#fitzone-hero .carousel-inner,
+#fitzone-hero .carousel-item {
+    background: #0d1113 !important;
+}
+
+/* ============================= */
+/*   RESPONSIVE FITZONE PREMIUM   */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+    /* HERO */
+    #fitzone-hero h1 {
+        font-size: 1.8rem !important;
+    }
+    #fitzone-hero h3 {
+        font-size: 1.2rem !important;
+    }
+    #fitzone-hero img {
+        margin-top: 20px;
+    }
+
+    /* CONTENEDORES */
+    .container, .section {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+    /* CARDS */
+    .card {
+        margin-bottom: 20px !important;
+    }
+
+    /* CATÁLOGO */
+    .col-md-4 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    /* CARRITO */
+    .cart-item {
+        text-align: center;
+    }
+
+    .cart-item img {
+        width: 120px !important;
+        margin-bottom: 10px;
+    }
+
+    .cart-item .col-md-5,
+    .cart-item .col-md-2 {
+        text-align: center;
+    }
+
+    /* RESUMEN DE COMPRA */
+    .col-lg-5 {
+        margin-top: 20px;
+    }
+
+    /* PRODUCTOS DETALLE */
+    .product-main-img img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* CONTACTO */
+    form .form-control {
+        font-size: 1rem;
+    }
+}
+
+/* MUY PEQUEÑO - CELULARES */
+@media (max-width: 480px) {
+
+    #fitzone-hero h1 {
+        font-size: 1.5rem !important;
+    }
+
+    .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .navbar-brand span {
+        font-size: 1.4rem !important;
+    }
+}
