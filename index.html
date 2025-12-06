@@ -77,7 +77,11 @@
                 </ul>
 
             </div>
-            <li class="nav-item position-relative">
+            <button class="btn" onclick="toggleHamburgerMenu()"
+                style="background:transparent; border:2px solid #38B6FF; color:#38B6FF; padding:8px 12px; border-radius:8px; margin-left:15px;">
+                <i class="fa fa-bars" style="font-size:18px;"></i>
+            </button>
+            <li class="nav-item position-relative" style="list-style:none;">
                 <a class="nav-link text-light" href="compras.html" style="position:relative;">
                     <i class="fa fa-shopping-cart" style="font-size:20px;"></i>
 
@@ -238,14 +242,21 @@
 
             <div class="row g-4">
 
+
                 <!-- PRODUCTO 1 -->
                 <div class="col-md-4">
                     <div class="card bg-dark text-light border-0 rounded-4 shadow-lg h-100">
                         <img src="assets/img/producto_1.png" class="card-img-top rounded-top-4">
                         <div class="card-body">
-                            <h5 class="fw-bold">Mancuerna Hexagonal</h5>
-                            <p class="text-secondary">Diseño robusto y agarre seguro para entrenar fuerza.</p>
-                            <span class="badge" style="background:#38B6FF;">$80.000 COP</span>
+                            <h5 class="fw-bold">Mancuernas Ajustables Pro 24kg</h5>
+                            <p class="text-secondary">Set de mancuernas ajustables de 2.5kg a 24kg por mancuerna.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="text-info fw-bold" style="font-size:1.3rem;">$89,900</span>
+                                <button class="btn btn-sm" style="background:#38B6FF; color:white;"
+                                    onclick="addToCart('Mancuernas Ajustables Pro 24kg', 89900, 'assets/img/producto_1.png')">
+                                    <i class="fa fa-shopping-cart me-1"></i>Agregar
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -255,9 +266,15 @@
                     <div class="card bg-dark text-light border-0 rounded-4 shadow-lg h-100">
                         <img src="assets/img/producto_2.png" class="card-img-top rounded-top-4">
                         <div class="card-body">
-                            <h5 class="fw-bold">Bandas de Resistencia Pro</h5>
-                            <p class="text-secondary">Tonifica y mejora tu rendimiento con bandas premium.</p>
-                            <span class="badge" style="background:#38B6FF;">$45.000 COP</span>
+                            <h5 class="fw-bold">Banda de Resistencia Set Premium</h5>
+                            <p class="text-secondary">5 bandas de resistencia con diferentes niveles de tensión.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="text-info fw-bold" style="font-size:1.3rem;">$45,900</span>
+                                <button class="btn btn-sm" style="background:#38B6FF; color:white;"
+                                    onclick="addToCart('Banda de Resistencia Set Premium', 45900, 'assets/img/producto_2.png')">
+                                    <i class="fa fa-shopping-cart me-1"></i>Agregar
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -265,11 +282,35 @@
                 <!-- PRODUCTO 3 -->
                 <div class="col-md-4">
                     <div class="card bg-dark text-light border-0 rounded-4 shadow-lg h-100">
-                        <img src="assets/img/producto_3.png" class="card-img-top rounded-top-4">
+                        <img src="assets/img/producto_5.png" class="card-img-top rounded-top-4">
                         <div class="card-body">
-                            <h5 class="fw-bold">Guantes Fitness Antideslizantes</h5>
-                            <p class="text-secondary">Protege tus manos y mejora tu agarre en cada rutina.</p>
-                            <span class="badge" style="background:#38B6FF;">$35.000 COP</span>
+                            <h5 class="fw-bold">Camiseta Deportiva Tech-Dry</h5>
+                            <p class="text-secondary">Camiseta de alto rendimiento con tecnología de secado rápido.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="text-info fw-bold" style="font-size:1.3rem;">$34,900</span>
+                                <button class="btn btn-sm" style="background:#38B6FF; color:white;"
+                                    onclick="addToCart('Camiseta Deportiva Tech-Dry', 34900, 'assets/img/producto_5.png')">
+                                    <i class="fa fa-shopping-cart me-1"></i>Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 4 - NUEVO -->
+                <div class="col-md-3">
+                    <div class="card bg-dark text-light border-0 rounded-4 shadow-lg h-100">
+                        <img src="assets/img/producto_4.png" class="card-img-top rounded-top-4">
+                        <div class="card-body">
+                            <h5 class="fw-bold">Smartwatch Fitness Pro</h5>
+                            <p class="text-secondary">Reloj inteligente con monitor cardíaco y GPS.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="text-info fw-bold" style="font-size:1.3rem;">$129,900</span>
+                                <button class="btn btn-sm" style="background:#38B6FF; color:white;"
+                                    onclick="addToCart('Smartwatch Fitness Pro', 129900, 'assets/img/producto_4.png')">
+                                    <i class="fa fa-shopping-cart me-1"></i>Agregar
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -327,6 +368,9 @@
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/jquery-1.11.0.min.js"></script>
     <script src="assets/js/custom.js"></script>
+    <script src="assets/js/carrito.js"></script>
+    <script src="assets/js/advanced-features.js"></script>
+    <script src="assets/js/menu-components.js"></script>
 
     <script>
         function actualizarCarritoCount() {

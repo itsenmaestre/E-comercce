@@ -26,7 +26,18 @@ function addToCart(nombre, precio, imagen) {
 
     guardarCarrito();
     actualizarCarritoHTML();
-    alert("Producto agregado al carrito ✔");
+
+    // Usar toast en lugar de alert si está disponible
+    if (typeof mostrarToast === 'function') {
+        mostrarToast(`${nombre} agregado al carrito 🛒`, 'success');
+    } else {
+        alert("Producto agregado al carrito ✔");
+    }
+
+    // Actualizar carrito flotante si existe
+    if (typeof actualizarCarritoFlotante === 'function') {
+        actualizarCarritoFlotante();
+    }
 }
 
 // Eliminar un producto totalmente
@@ -34,6 +45,16 @@ function eliminarProducto(nombre) {
     carrito = carrito.filter(item => item.nombre !== nombre);
     guardarCarrito();
     actualizarCarritoHTML();
+
+    // Actualizar carrito flotante si existe
+    if (typeof actualizarCarritoFlotante === 'function') {
+        actualizarCarritoFlotante();
+    }
+
+    // Notificación
+    if (typeof mostrarToast === 'function') {
+        mostrarToast('Producto eliminado del carrito', 'info');
+    }
 }
 
 // Cambiar cantidad (+ / -)
@@ -51,6 +72,11 @@ function cambiarCantidad(nombre, valor) {
     }
 
     actualizarCarritoHTML();
+
+    // Actualizar carrito flotante si existe
+    if (typeof actualizarCarritoFlotante === 'function') {
+        actualizarCarritoFlotante();
+    }
 }
 
 // Calcular total
@@ -62,7 +88,7 @@ function calcularTotal() {
 function actualizarCarritoHTML() {
     const contenedor = document.getElementById("carrito-contenedor");
     const totalHTML = document.getElementById("total-precio");
-    
+
     if (!contenedor) return;
 
     contenedor.innerHTML = "";

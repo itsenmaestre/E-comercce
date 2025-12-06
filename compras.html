@@ -1,5 +1,6 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,52 +8,89 @@
 
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 
     <style>
-        body { background:#0d1113; color:white; }
+        body {
+            background: #0d1113;
+            color: white;
+        }
 
         .btn-fz {
-            background:#38B6FF;
-            color:white;
-            font-weight:600;
-            border-radius:8px;
+            background: #38B6FF;
+            color: white;
+            font-weight: 600;
+            border-radius: 8px;
         }
 
         .btn-fz:hover {
-            background:#2a90cc;
-            color:white;
+            background: #2a90cc;
+            color: white;
         }
 
         .footer {
-            background:#0a0d0f;
-            padding:40px 0;
-            margin-top:60px;
-            border-top:1px solid #1c2328;
+            background: #0a0d0f;
+            padding: 40px 0;
+            margin-top: 60px;
+            border-top: 1px solid #1c2328;
         }
 
         .footer h4 {
-            font-weight:700;
-            margin-bottom:20px;
-            color:white;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
         }
 
         .footer a {
-            color:#38B6FF;
-            text-decoration:none;
+            color: #38B6FF;
+            text-decoration: none;
         }
 
         .footer a:hover {
-            text-decoration:underline;
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
+    <nav id="topbar" class="py-2" style="background:#0a0d0f; border-bottom:1px solid #1a1f24;">
+        <div class="container d-flex justify-content-between text-light small">
+            <div>
+                <i class="fa fa-envelope me-2 text-info"></i> contacto@fitzone.com
+                <i class="fa fa-phone ms-4 me-2 text-info"></i> +57 300 000 0000
+            </div>
+
+            <div>
+                <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-light"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </nav>
 
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg" style="background:#0a0d0f;">
         <div class="container">
-            <a class="navbar-brand text-light fw-bold" href="index.html">FitZone</a>
+            <a class="navbar-brand d-flex align-items-center text-white" href="index.html">
+                <div style="
+                    width:55px;
+                    height:55px;
+                    border-radius:50%;
+                    border:3px solid #38B6FF;
+                    padding:3px;
+                    overflow:hidden;
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;
+                    background:#0d1113;
+                ">
+                    <img src="assets/img/logo.png" alt="FitZone Logo" style="width:95%; border-radius:50%;">
+                </div>
+
+                <span style="font-size:1.8rem; font-weight:700; margin-left:12px; color:white;">
+                    FitZone
+                </span>
+            </a>
 
             <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
                 <span class="navbar-toggler-icon" style="filter:invert(1);"></span>
@@ -60,13 +98,28 @@
 
             <div class="collapse navbar-collapse justify-content-end" id="nav">
                 <ul class="navbar-nav text-center">
-                    <li class="nav-item"><a class="nav-link text-light" href="index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link text-light" href="acercade.html">Acerca de</a></li>
-                    <li class="nav-item"><a class="nav-link text-info fw-bold" href="compras.html">Compras</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 text-light" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 text-light" href="acercade.html">Acerca de</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 text-light" href="compras.html">Compras</a></li>
                     <li class="nav-item"><a class="nav-link text-light" href="productos_general.html">Productos</a></li>
-                    <li class="nav-item"><a class="nav-link text-light" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 text-light" href="contacto.html">Contacto</a></li>
                 </ul>
             </div>
+
+            <!-- Boton menu hamburguesa -->
+            <button class="btn" onclick="toggleHamburgerMenu()"
+                style="background:transparent; border:2px solid #38B6FF; color:#38B6FF; padding:8px 12px; border-radius:8px; margin-left:15px;">
+                <i class="fa fa-bars" style="font-size:18px;"></i>
+            </button>
+
+            <!-- Carrito -->
+            <li class="nav-item position-relative" style="list-style:none; margin-left:10px;">
+                <a class="nav-link text-light" href="compras.html" style="position:relative;">
+                    <i class="fa fa-shopping-cart" style="font-size:20px;"></i>
+                    <span id="carrito-count"
+                        style="position:absolute; top:0; right:-10px; background:#38B6FF; color:#000; padding:2px 7px; border-radius:50%; font-size:12px; font-weight:bold; display:none;">0</span>
+                </a>
+            </li>
         </div>
     </nav>
 
@@ -134,6 +187,8 @@
     <!-- SCRIPTS -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/carrito.js"></script>
-
+    <script src="assets/js/advanced-features.js"></script>
+    <script src="assets/js/menu-components.js"></script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,45 +8,85 @@
 
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 
     <style>
-        body { background:#0d1113; }
+        body {
+            background: #0d1113;
+        }
 
         .product-card {
-            background:#11161a;
-            border:1px solid #1c2328;
-            border-radius:12px;
-            transition:0.3s;
+            background: #11161a;
+            border: 1px solid #1c2328;
+            border-radius: 12px;
+            transition: 0.3s;
         }
+
         .product-card:hover {
             transform: translateY(-5px);
-            border-color:#38B6FF;
+            border-color: #38B6FF;
         }
+
         .product-img {
-            width:100%;
-            height:220px;
-            object-fit:cover;
-            border-radius:10px;
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
         }
+
         .btn-fz {
-            background:#38B6FF;
-            color:white;
-            font-weight:600;
-            border-radius:8px;
+            background: #38B6FF;
+            color: white;
+            font-weight: 600;
+            border-radius: 8px;
         }
+
         .btn-fz:hover {
-            background:#2a90cc;
-            color:white;
+            background: #2a90cc;
+            color: white;
         }
     </style>
 </head>
 
 <body>
+    <nav id="topbar" class="py-2" style="background:#0a0d0f; border-bottom:1px solid #1a1f24;">
+        <div class="container d-flex justify-content-between text-light small">
+            <div>
+                <i class="fa fa-envelope me-2 text-info"></i> contacto@fitzone.com
+                <i class="fa fa-phone ms-4 me-2 text-info"></i> +57 300 000 0000
+            </div>
+
+            <div>
+                <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-light"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </nav>
 
     <!-- NAV -->
     <nav class="navbar navbar-expand-lg" style="background:#0a0d0f;">
         <div class="container">
-            <a class="navbar-brand text-light fw-bold" href="index.html">FitZone</a>
+            <a class="navbar-brand d-flex align-items-center text-white" href="index.html">
+                <div style="
+                    width:55px;
+                    height:55px;
+                    border-radius:50%;
+                    border:3px solid #38B6FF;
+                    padding:3px;
+                    overflow:hidden;
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;
+                    background:#0d1113;
+                ">
+                    <img src="assets/img/logo.png" alt="FitZone Logo" style="width:95%; border-radius:50%;">
+                </div>
+
+                <span style="font-size:1.8rem; font-weight:700; margin-left:12px; color:white;">
+                    FitZone
+                </span>
+            </a>
 
             <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
                 <span class="navbar-toggler-icon" style="filter:invert(1);"></span>
@@ -53,17 +94,32 @@
 
             <div class="collapse navbar-collapse justify-content-end" id="nav">
                 <ul class="navbar-nav text-center">
-                    <li class="nav-item"><a class="nav-link text-light" href="index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link text-light" href="acercade.html">Acerca de</a></li>
-                    <li class="nav-item"><a class="nav-link text-light" href="compras.html">Compras</a></li>
-                    <li class="nav-item"><a class="nav-link text-info fw-bold" href="productos_general.html">Productos</a></li>
-                    <li class="nav-item"><a class="nav-link text-light" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 text-light" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 text-light" href="acercade.html">Acerca de</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 text-light" href="compras.html">Compras</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="productos_general.html">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 text-light" href="contacto.html">Contacto</a></li>
                 </ul>
             </div>
+
+            <!-- Boton menu hamburguesa -->
+            <button class="btn" onclick="toggleHamburgerMenu()"
+                style="background:transparent; border:2px solid #38B6FF; color:#38B6FF; padding:8px 12px; border-radius:8px; margin-left:15px;">
+                <i class="fa fa-bars" style="font-size:18px;"></i>
+            </button>
+
+            <!-- Carrito -->
+            <li class="nav-item position-relative" style="list-style:none; margin-left:10px;">
+                <a class="nav-link text-light" href="compras.html" style="position:relative;">
+                    <i class="fa fa-shopping-cart" style="font-size:20px;"></i>
+                    <span id="carrito-count"
+                        style="position:absolute; top:0; right:-10px; background:#38B6FF; color:#000; padding:2px 7px; border-radius:50%; font-size:12px; font-weight:bold; display:none;">0</span>
+                </a>
+            </li>
         </div>
     </nav>
 
-    
+
     <!-- CONTENIDO -->
     <section class="container py-5">
         <h1 class="fw-bold text-light mb-4">Catálogo Completo</h1>
@@ -100,9 +156,123 @@
                 </div>
             </div>
 
+            <!-- PRODUCTO 4 - NUEVO -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="product-card p-3" data-name="Mancuernas Ajustables Pro 24kg" data-category="pesas"
+                    data-price="89900">
+                    <img src="assets/img/producto_1.png" class="product-img" alt="Mancuernas Ajustables">
+                    <h4 class="fw-bold text-light mt-3">Mancuernas Ajustables Pro 24kg</h4>
+                    <p class="text-secondary">Set de mancuernas ajustables de 2.5kg a 24kg por mancuerna.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="text-info fw-bold" style="font-size:1.2rem;">$89,900</span>
+                        <button class="btn btn-fz"
+                            onclick="addToCart('Mancuernas Ajustables Pro 24kg', 89900, 'assets/img/producto_1.png')">
+                            <i class="fa fa-shopping-cart me-2"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 5 - NUEVO -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="product-card p-3" data-name="Banda de Resistencia Set Premium" data-category="accesorios"
+                    data-price="45900">
+                    <img src="assets/img/producto_2.png" class="product-img" alt="Bandas de Resistencia">
+                    <h4 class="fw-bold text-light mt-3">Banda de Resistencia Set Premium</h4>
+                    <p class="text-secondary">5 bandas de resistencia con diferentes niveles de tensión.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="text-info fw-bold" style="font-size:1.2rem;">$45,900</span>
+                        <button class="btn btn-fz"
+                            onclick="addToCart('Banda de Resistencia Set Premium', 45900, 'assets/img/producto_2.png')">
+                            <i class="fa fa-shopping-cart me-2"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 6 - NUEVO -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="product-card p-3" data-name="Camiseta Deportiva Tech-Dry" data-category="ropa"
+                    data-price="34900">
+                    <img src="assets/img/producto_3.png" class="product-img" alt="Camiseta Deportiva">
+                    <h4 class="fw-bold text-light mt-3">Camiseta Deportiva Tech-Dry</h4>
+                    <p class="text-secondary">Camiseta de alto rendimiento con tecnología de secado rápido.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="text-info fw-bold" style="font-size:1.2rem;">$34,900</span>
+                        <button class="btn btn-fz"
+                            onclick="addToCart('Camiseta Deportiva Tech-Dry', 34900, 'assets/img/producto_3.png')">
+                            <i class="fa fa-shopping-cart me-2"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 7 - NUEVO -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="product-card p-3" data-name="Smartwatch Fitness Pro" data-category="accesorios"
+                    data-price="129900">
+                    <img src="assets/img/producto_4.png" class="product-img" alt="Smartwatch Fitness">
+                    <h4 class="fw-bold text-light mt-3">Smartwatch Fitness Pro</h4>
+                    <p class="text-secondary">Reloj inteligente con monitor cardíaco y GPS integrado.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="text-info fw-bold" style="font-size:1.2rem;">$129,900</span>
+                        <button class="btn btn-fz"
+                            onclick="addToCart('Smartwatch Fitness Pro', 129900, 'assets/img/producto_4.png')">
+                            <i class="fa fa-shopping-cart me-2"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
+    <footer class="py-5 text-light" style="background:#0a0d0f;">
+        <div class="container">
 
+            <div class="row">
+
+                <!-- COLUMNA 1 -->
+                <div class="col-md-4 mb-4">
+                    <h3 class="fw-bold mb-3">FitZone</h3>
+                    <p class="text-secondary">
+                        Equipo premium para tus entrenamientos. Rendimiento, calidad y estilo para atletas reales.
+                    </p>
+                </div>
+
+                <!-- COLUMNA 2 -->
+                <div class="col-md-4 mb-4">
+                    <h4 class="fw-semibold mb-3">Enlaces</h4>
+                    <ul class="list-unstyled text-secondary">
+                        <li><a href="index.html" class="text-secondary text-decoration-none">Inicio</a></li>
+                        <li><a href="productos.html" class="text-secondary text-decoration-none">Productos</a></li>
+                        <li><a href="compras.html" class="text-secondary text-decoration-none">Compras</a></li>
+                        <li><a href="contacto.html" class="text-secondary text-decoration-none">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMNA 3 -->
+                <div class="col-md-4 mb-4">
+                    <h4 class="fw-semibold mb-3">Contacto</h4>
+                    <p class="text-secondary mb-1"><i class="fa fa-envelope me-2 text-info"></i> contacto@fitzone.com
+                    </p>
+                    <p class="text-secondary mb-1"><i class="fa fa-phone me-2 text-info"></i> +57 300 000 0000</p>
+                    <p class="text-secondary"><i class="fa fa-map-marker-alt me-2 text-info"></i> Bogotá, Colombia</p>
+                </div>
+
+            </div>
+
+            <hr class="border-secondary">
+
+            <div class="text-center text-secondary small">
+                © 2024 FitZone — Premium Fitness Gear. Todos los derechos reservados.
+            </div>
+
+        </div>
+    </footer>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/carrito.js"></script>
+    <script src="assets/js/advanced-features.js"></script>
+    <script src="assets/js/menu-components.js"></script>
 </body>
+
 </html>
